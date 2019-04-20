@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MemberMangement.Models.Member>
+@{
+    ViewBag.Title = "Index";
+}
+<h1> MemberMangement</h1>
+<p>
+    @Html.ActionLink("Create New", "AddNewMember")
+</p>
+
+@if(Model != null) {
+
+<table border="1" style="text-align:center; width:30%;" >
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Age</td>
+                <td>Address</td>
+                <td>Ted</td>
+                <td>Delect</td>
+            </tr>
+            </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Address</td>
+                <td>@item.Ted</td>
+                <td>@Html.ActionLink("刪除留言", "DelectMember", new { id = item.id })</td>
+                <td>@Html.ActionLink("Edit", "Edit", new { id = item.id })</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>目前無任何資料,請新增資料</h1>
+}
+
+
