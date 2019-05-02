@@ -10,20 +10,25 @@ namespace MemberMangement.Service
 {
     public class MemberService
     {
-        MemberManagementEntities db = new MemberManagementEntities();
+        MemberManagementEntities1 db = new MemberManagementEntities1();
 
+        #region display all list
         public List<Member> GetAllMember()
         {
             return db.Member.ToList();
         }
+        #endregion
 
-        public void  DelectMember(int id)
+        #region delete data
+        public void  DeleteMember(int id)
         {
-            Member DelectmMember = db.Member.SingleOrDefault(x => x.id == id);
-            db.Member.Remove(DelectmMember);
+            Member DeletemMember = db.Member.SingleOrDefault(x => x.id == id);
+            db.Member.Remove(DeletemMember);
             db.SaveChanges();
         }
+        #endregion
 
+        #region add member
         public void AddMember(Member AddMember)
         {
             db.Member.Add(AddMember);
@@ -31,9 +36,11 @@ namespace MemberMangement.Service
         }
         public Member GetMemberById(int id)
         {
-           return db.Member.Find(id); ;
+           return db.Member.Find(id); 
         }
+        #endregion
 
+        #region editdata
         public void EditMemberData(Member EditMember)
         {
             Member oldMember = GetMemberById(EditMember.id);
@@ -43,8 +50,9 @@ namespace MemberMangement.Service
             oldMember.Ted = EditMember.Ted;
             db.SaveChanges();
         }
+        #endregion
 
-        
+
     }
 
 }

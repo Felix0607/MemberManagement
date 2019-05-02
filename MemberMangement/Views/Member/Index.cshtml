@@ -7,9 +7,10 @@
     @Html.ActionLink("Create New", "AddNewMember")
 </p>
 
-@if(Model != null) {
+@if (Model != null)
+{
 
-<table border="1" style="text-align:center; width:30%;" >
+    <table border="1" style="text-align:center; width:30%;">
         <thead>
             <tr>
                 <td>Name</td>
@@ -18,7 +19,7 @@
                 <td>Ted</td>
                 <td>Delect</td>
             </tr>
-            </thead>
+        </thead>
         <tbody>
             @foreach (var item in Model)
             {
@@ -27,8 +28,8 @@
                 <td>@item.Age</td>
                 <td>@item.Address</td>
                 <td>@item.Ted</td>
-                <td>@Html.ActionLink("刪除留言", "DelectMember", new { id = item.id })</td>
-                <td>@Html.ActionLink("Edit", "Edit", new { id = item.id })</td>
+               <td> <a herf="#" id="Edit" onclick="clickEdit(@item.id)">Edit</a> </td>
+               <td> @Html.ActionLink("Delete", "DeleteMember", new { id = item.id }) </td>
             </tr>
             }
         </tbody>
@@ -37,6 +38,27 @@
 else
 {
     <h1>目前無任何資料,請新增資料</h1>
+}
+
+<div id="EditAria">
+
+</div>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    function clickEdit(id) {
+        var url = '@Url.Action("EditView", "Member")';
+            $('#EditAria').load(url, { id: id });
+    }
+</script>
+
+<style>
+    a:hover {
+        cursor: pointer;
+    }
+</style>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
 
 

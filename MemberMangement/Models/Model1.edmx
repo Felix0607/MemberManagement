@@ -13,7 +13,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Age" Type="int" Nullable="false" />
           <Property Name="Address" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="Ted" Type="nchar" MaxLength="11" />
+          <Property Name="Ted" Type="nchar" MaxLength="14" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MemberManagementModelStoreContainer">
           <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
@@ -31,9 +31,9 @@
           <Property Name="Name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Age" Type="Int32" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Ted" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="Ted" Type="String" MaxLength="14" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="MemberManagementEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MemberManagementEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Member" EntityType="Self.Member" />
         </EntityContainer>
       </Schema>
@@ -41,7 +41,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MemberManagementModelStoreContainer" CdmEntityContainer="MemberManagementEntities">
+        <EntityContainerMapping StorageEntityContainer="MemberManagementModelStoreContainer" CdmEntityContainer="MemberManagementEntities1">
           <EntitySetMapping Name="Member">
             <EntityTypeMapping TypeName="MemberManagementModel.Member">
               <MappingFragment StoreEntitySet="Member">
@@ -70,7 +70,7 @@
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

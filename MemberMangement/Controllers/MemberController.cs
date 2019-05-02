@@ -19,9 +19,9 @@ namespace MemberMangement.Controllers
             return View(MemberList);
         }
 
-        public ActionResult DelectMember(int id)
+        public ActionResult DeleteMember(int id)
         {
-            memberService.DelectMember(id);
+            memberService.DeleteMember(id);
             return RedirectToAction("index");
         }
 
@@ -29,20 +29,22 @@ namespace MemberMangement.Controllers
         {
             return View();
         }
-//        public ActionResult Edit(int id)
-//        {   
-//            Member FindMember = new Member();
-//            FindMember = memberService.FindMember(id);
-//            return View(FindMember);
-//        }
 
         [HttpPost]
         public ActionResult AddNewMember(Member Data)
         {
             memberService.AddMember(Data);
-            return RedirectToAction("index");
+            return RedirectToAction("index", "Member");
         }
-        public ActionResult Edit(int Id)
+
+        [HttpPost]
+        public ActionResult Edit(Member MemberData)
+        {
+            memberService.EditMemberData(MemberData);
+            return RedirectToAction("index" , "Member");
+        }
+
+        public ActionResult EditView(int Id)
         {
             return View(memberService.GetMemberById(Id));
         }
